@@ -1,0 +1,8 @@
+mat-form-field {
+    margin-bottom: 16px; /* Ajusta el espacio entre los inputs */
+  }
+  
+  mat-dialog-content {
+    padding: 16px; /* Espaciado dentro del contenido del modal */
+  }
+  

@@ -1,0 +1,100 @@
+<app-navbard></app-navbard>
+<router-outlet></router-outlet>
+<div class="container">
+  <form (ngSubmit)="aplicarFiltros()">
+    <div class="filters">
+      <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Desarrollador</mat-label>
+        <input matInput [(ngModel)]="filtros.fullName" name="fullName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Cliente</mat-label>
+        <input matInput [(ngModel)]="filtros.clientFullName" name="clientFullName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="filtros.status" name="status">
+          <mat-option *ngFor="let status of statusList" [value]="status">
+            {{ status }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Buscar</button>
+      <button mat-raised-button color="primary" type="button" (click)="clearFilters()">Limpiar Filtros</button>
+    </div>
+  </form>
+
+  <div class="add-record-button">
+    <!-- <button mat-raised-button color="accent" (click)="addNewRecord()">Crear Actividad</button> -->
+    <button 
+      mat-raised-button color="accent"
+      [disabled]="!isAdmin" 
+      (click)="isAdmin && addNewRecord()">
+      Crear Actividad
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="productos" matSort class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.id }}</td>
+    </ng-container>
+
+    <!-- developer Column -->
+    <ng-container matColumnDef="developer">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Desarrollador</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.fullName }}</td>
+    </ng-container>
+
+    <!-- client Column -->
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.clientFullName }}</td>
+    </ng-container>
+
+    <!-- description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.description }}</td>
+    </ng-container>
+
+    <!-- description Column -->
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nota</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.note }}</td>
+    </ng-container>
+
+    <!-- status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+      <td mat-cell *matCellDef="let producto">{{ producto.status }}</td>
+    </ng-container>
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let producto">
+        <button mat-icon-button color="primary" 
+          [disabled]="!isAdmin" (click)="isAdmin && editRow(producto)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteRow(producto)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="cambiarPagina($event)">
+  </mat-paginator>
+</div>
+
+<app-footer></app-footer>

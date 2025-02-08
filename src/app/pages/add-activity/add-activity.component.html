@@ -1,0 +1,60 @@
+<!-- dialog-add-record.component.html -->
+<h1 mat-dialog-title>Crear Actividad</h1>
+
+<div mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" fxLayout="column" fxLayoutGap="16px">
+    <mat-form-field appearance="fill">
+      <mat-label>ID Documento</mat-label>
+      <input matInput [(ngModel)]="newRecord.idDocument" name="idDocument" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Developer</mat-label>
+      <input matInput [(ngModel)]="newRecord.fullName" name="fullName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cliente</mat-label>
+      <input matInput [(ngModel)]="newRecord.clientFullName" name="clientFullName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Teléfono del Cliente</mat-label>
+      <input matInput [(ngModel)]="newRecord.clientPhone" name="clientPhone" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Monto</mat-label>
+      <input matInput [(ngModel)]="newRecord.amount" name="amount" type="number" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Pago del Cliente</mat-label>
+      <input matInput [(ngModel)]="newRecord.customerPayment" name="customerPayment" type="number" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="newRecord.description" name="description" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nota</mat-label>
+      <input matInput [(ngModel)]="newRecord.note" name="note" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="newRecord.status" name="status" required>
+        <mat-option *ngFor="let status of statusList" [value]="status">
+          {{ status }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Agregar</button>
+    </div>
+  </form>
+</div>

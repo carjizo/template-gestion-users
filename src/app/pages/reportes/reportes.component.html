@@ -1,0 +1,32 @@
+<app-navbard></app-navbard>
+<router-outlet></router-outlet>
+
+<!-- <h1>Generación de Reportes</h1> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Reportes</title>
+    <style>
+        .btn-container {
+            margin-bottom: 20px; /* Se agrega espacio entre los botones */
+        }
+    </style>
+</head>
+<body class="container">
+    <app-navbard></app-navbard>
+    
+    <h1>Generación de Reportes</h1>
+
+    <section class="btn-container">
+        <a href="http://localhost:8083/collaborator/export-to-excel" class="btn btn-primary">Descargar reporte de colaboradores</a>
+    </section>
+
+    <section class="btn-container">
+        <a href="http://localhost:8081/activity/export-to-excel" class="btn btn-primary">Descargar reporte de actividades</a>
+    </section>
+    
+    <app-footer></app-footer>
+    
+</body>
+
+<app-footer></app-footer>

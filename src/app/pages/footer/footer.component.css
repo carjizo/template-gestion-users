@@ -1,0 +1,19 @@
+.custom-footer {
+    background-color: #1976d2;
+    color: white;
+    height: 40px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .footer-text {
+    font-size: 10px;
+    }
+  

@@ -1,0 +1,25 @@
+<!-- dialog-add-record.component.html -->
+<h1 mat-dialog-title>Crear Usuario</h1>
+
+<div mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" fxLayout="column" fxLayoutGap="16px">
+    <mat-form-field appearance="fill">
+      <mat-label>ID Documento</mat-label>
+      <input matInput [(ngModel)]="newRecord.idDocument" name="idDocument" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Role</mat-label>
+      <mat-select [(ngModel)]="newRecord.role" name="role" required>
+        <mat-option *ngFor="let role of statusList" [value]="role">
+          {{ role }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Agregar</button>
+    </div>
+  </form>
+</div>

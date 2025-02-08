@@ -1,0 +1,93 @@
+<app-navbard></app-navbard>
+<router-outlet></router-outlet>
+<div class="container">
+    <form (ngSubmit)="aplicarFiltros()">
+      <div class="filters">
+        <mat-form-field appearance="fill" class="filter-field">
+          <mat-label>Documento</mat-label>
+          <input matInput [(ngModel)]="filtros.idDocument" name="idDocument" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="filter-field">
+          <mat-label>Nombre completo</mat-label>
+          <input matInput [(ngModel)]="filtros.fullName" name="fullName" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="filter-field">
+          <mat-label>Rol</mat-label>
+          <mat-select [(ngModel)]="filtros.role" name="role">
+            <mat-option *ngFor="let role of roleList" [value]="role">
+              {{ role }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">Buscar</button>
+        <button mat-raised-button color="primary" type="button" (click)="clearFilters()">Limpiar Filtros</button>
+      </div>
+    </form>
+  
+    <div class="add-record-button">
+      <!-- <button mat-raised-button color="accent" (click)="addNewRecord()">Crear Actividad</button> -->
+      <button 
+        mat-raised-button color="accent"
+        [disabled]="!isAdmin" 
+        (click)="isAdmin && addNewRecord()">
+        Crear Usuario
+      </button>
+    </div>
+  
+    <table mat-table [dataSource]="productos" matSort class="mat-elevation-z8">
+      <!-- idDocument Column -->
+      <ng-container matColumnDef="idDocument">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Documento</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.idDocument }}</td>
+      </ng-container>
+  
+      <!-- fullName Column -->
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre completo</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.fullName }}</td>
+      </ng-container>
+  
+      <!-- phone Column -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.phone }}</td>
+      </ng-container>
+  
+      <!-- role Column -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.role }}</td>
+      </ng-container>
+  
+      <!-- status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.status }}</td>
+      </ng-container>
+  
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let producto">
+          <button mat-icon-button color="primary" 
+            [disabled]="!isAdmin" (click)="isAdmin && editRow(producto)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteRow(producto)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+      (page)="cambiarPagina($event)">
+    </mat-paginator>
+  </div>
+<app-footer></app-footer>

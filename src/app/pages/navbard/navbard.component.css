@@ -1,0 +1,46 @@
+/* Estilos básicos para el toolbar */
+.custom-toolbar {
+  background-color: #1976d2;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.menu-icon {
+  display: none; /* Ocultar el botón de menú en pantallas grandes */
+}
+
+.toolbar-buttons {
+  display: flex; /* Mostrar botones en fila */
+}
+
+.welcome-user {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+  }
+
+  .toolbar-buttons {
+    display: none; /* Ocultar botones en pantallas pequeñas */
+  }
+
+  .welcome-user {
+    display: none; /* Ocultar texto de bienvenida en pantallas pequeñas */
+  }
+}
+
+/* Sidenav estilos */
+.sidenav-container {
+  margin-top: 64px; /* Ajustar para que no quede detrás del toolbar */
+}
+
+.sidenav {
+  width: 250px;
+}

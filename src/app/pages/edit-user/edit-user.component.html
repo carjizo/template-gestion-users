@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Editar Usuario</h2>
+<mat-dialog-content>
+    <form #editForm="ngForm" fxLayout="column" fxLayoutGap="16px">
+
+    <div fxLayout="row" fxLayoutGap="16px" fxFlexFill>
+        <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="data.collab.fullName" name="fullName" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Celular</mat-label>
+        <input matInput [(ngModel)]="data.collab.phone" name="clientFullName" />
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="16px" fxFlexFill>
+        <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="data.collab.status" name="status">
+            <mat-option *ngFor="let status of statusList" [value]="status">{{ status }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select [(ngModel)]="data.collab.role" name="role">
+            <mat-option *ngFor="let role of data.roleList" [value]="role">{{ role }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancelar</button>
+    <button mat-button color="primary" (click)="saveChanges()">Guardar</button>
+</mat-dialog-actions>

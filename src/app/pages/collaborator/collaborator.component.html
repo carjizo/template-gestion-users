@@ -1,0 +1,42 @@
+<app-navbard></app-navbard>
+<router-outlet></router-outlet>
+
+<div class="collaborator-container">
+    <h2>Mis datos</h2>
+    
+    <form (ngSubmit)="onSubmit()" class="collaborator-form">
+        <label for="idDocument">Documento de Identidad:</label>
+        <input type="text" id="idDocument" [(ngModel)]="idDocument" name="idDocument" readonly />
+
+        <label for="fullName">Nombre Completo:</label>
+        <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" />
+
+        <label for="phone">Teléfono:</label>
+        <input type="text" id="phone" [(ngModel)]="phone" name="phone" />
+
+        <label for="role">Rol:</label>
+        <input type="text" id="role" [(ngModel)]="role" name="role" readonly />
+
+        <button type="submit" class="save-button">Guardar</button>
+    </form>
+    <button (click)="openPasswordModal()" class="password-button">Actualizar Contraseña</button>
+</div>
+
+<!-- Modal para actualizar contraseña -->
+<div class="modal" *ngIf="isPasswordModalOpen">
+    <div class="modal-content">
+        <h3>Actualizar Contraseña</h3>
+        <form (ngSubmit)="updatePassword()">
+            <label for="newPassword">Nueva Contraseña:</label>
+            <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required />
+
+            <label for="confirmPassword">Confirmar Contraseña:</label>
+            <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+
+            <button type="submit" class="save-button-password">Guardar</button>
+            <button type="button" class="cancel-button" (click)="closePasswordModal()">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Editar Actividad</h2>
+<mat-dialog-content>
+    <form #editForm="ngForm" fxLayout="column" fxLayoutGap="16px">
+
+    <div fxLayout="row" fxLayoutGap="16px" fxFlexFill>
+        <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Desarrollador</mat-label>
+        <input matInput [(ngModel)]="data.activity.fullName" name="fullName" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Cliente</mat-label>
+        <input matInput [(ngModel)]="data.activity.clientFullName" name="clientFullName" />
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="16px" fxFlexFill>
+        <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Descripción</mat-label>
+        <textarea matInput [(ngModel)]="data.activity.description" name="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Nota</mat-label>
+        <textarea matInput [(ngModel)]="data.activity.note" name="note"></textarea>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="data.activity.status" name="status">
+        <mat-option *ngFor="let status of data.statusList" [value]="status">{{ status }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancelar</button>
+    <button mat-button color="primary" (click)="saveChanges()">Guardar</button>
+</mat-dialog-actions>

@@ -1,0 +1,177 @@
+/* Estilos generales */
+.main-content {
+    margin-top: 70px; /* Ajusta este valor según la altura de tu navbar */
+  }
+  
+  .container {
+    margin: 100px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Filtros: optimización de tamaño y distribución compacta */
+  .filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  /* Estilo compacto para cada campo de filtro */
+  .filter-field {
+    min-width: 150px;
+    max-width: 250px;
+    width: 100%;
+  }
+  
+  /* Estilo para el botón de aplicar filtros */
+  button[type="submit"] {
+    margin-left: 10px;
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilo para el botón de limpiar filtros */
+  button[type="button"]:nth-child(2) {
+    background-color: #f44336;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button[type="button"]:nth-child(2):hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  /* Estilo para el botón de agregar registro */
+  .add-record-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .add-record-button button {
+    background-color: #ff4081;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .add-record-button button:hover {
+    background-color: #e040fb;
+    transform: scale(1.05);
+  }
+  
+  /* Estilos para la tabla */
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Cabeceras de la tabla */
+  th.mat-header-cell {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    color: #333;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  /* Filas de la tabla */
+  td.mat-cell {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+  }
+  
+  td.mat-cell:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  /* Filas alternadas */
+  tr:nth-child(even) td.mat-cell {
+    background-color: #f9f9f9;
+  }
+  
+  tr:nth-child(odd) td.mat-cell {
+    background-color: #ffffff;
+  }
+  
+  /* Resaltar filas al pasar el mouse */
+  tr:hover td.mat-cell {
+    background-color: #efefef;
+  }
+  
+  /* Estilo para los botones de la tabla (acciones) */
+  button.mat-icon-button {
+    margin-right: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  button.mat-icon-button:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.1);
+  }
+  
+  /* Botón editar */
+  button.mat-icon-button.color-primary {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  /* Botón eliminar */
+  button.mat-icon-button.color-warn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Estilo para el paginator */
+  mat-paginator {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Colores de los íconos */
+  .mat-icon-button .mat-icon {
+    color: #00796b;
+  }
+  
+  /* Ajustes para los selectores */
+  mat-select {
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  
+  mat-form-field {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  mat-select .mat-select-trigger {
+    background-color: #f5f5f5;
+  }
+  

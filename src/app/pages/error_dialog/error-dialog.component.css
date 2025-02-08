@@ -1,0 +1,58 @@
+.error-dialog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+}
+
+.error-dialog-icon {
+  font-size: 36px;
+  color: #007acc;
+  margin-bottom: 10px;
+}
+
+.error-dialog-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+.error-dialog-content {
+  font-size: 16px;
+  margin: 15px 0;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.error-dialog-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.close-button {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #005fa3;
+}
+
+.close-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.5);
+}
